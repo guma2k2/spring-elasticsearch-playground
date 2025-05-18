@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 public class ProductController {
@@ -15,7 +16,7 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/search/suggest")
-    public List<Product> getSuggest (@RequestParam("keyword") String keyword) {
+    public Set<String> getSuggest (@RequestParam("keyword") String keyword) {
         return productService.getSuggest(keyword);
     }
 }
